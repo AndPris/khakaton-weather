@@ -1,3 +1,3 @@
-#This repository contains code for khakaton competition.
+# This repository contains code for khakaton competition.
 
-##Made by Bees team.
+## Made by Bees team.
