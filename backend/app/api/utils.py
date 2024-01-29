@@ -98,12 +98,7 @@ async def get_prediction_data(json_data):
             "feels_like": global_forecast["feels_like"].tolist()[2::3],
             "pressure": global_forecast["pressure"].tolist()[2::3],
             "humidity": global_forecast["humidity"].tolist()[2::3],
-            "temp_min": global_forecast["temp_min"].tolist()[2::3],
-            "temp_max": global_forecast["temp_max"].tolist()[2::3],
             "speed": global_forecast["speed"].tolist()[2::3],
-            "deg": global_forecast["deg"].tolist()[2::3],
-            "gust": global_forecast["gust"].tolist()[2::3],
-            "all": global_forecast["all"].tolist()[2::3],
         }
     except Exception:
         return None
