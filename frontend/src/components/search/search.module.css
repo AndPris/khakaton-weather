@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.inner {
+  width: 450px;
+  background-color: #fff;
+  padding: 28px 35px 100px;
+  margin: auto;
+}
