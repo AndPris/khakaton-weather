@@ -2,7 +2,7 @@ import datetime
 
 import aiohttp
 import pandas as pd
-from config import API_WEATHER
+from ..config import API_WEATHER
 from prophet import Prophet
 
 
