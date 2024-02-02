@@ -2,8 +2,9 @@ import datetime
 
 import aiohttp
 import pandas as pd
-from ..config import API_WEATHER
 from prophet import Prophet
+
+from ..config import API_WEATHER
 
 
 async def get_weather_prediction_data(lon: float, lat: float):
@@ -88,16 +89,14 @@ async def get_prediction_data(json_data):
                     forecasts.append(forecast)
                     print(f"Processed key: {key}, option: {option}")
                 except KeyError as e:
-                    print(
-                        f"KeyError: {e} occurred for key: {key}, option: {option}")
+                    print(f"KeyError: {e} occurred for key: {key}, option: {option}")
                     # Handle the KeyError or add more specific error handling
                 except Exception as e:
                     print(f"Exception Type: {type(e).__name__}")
 
         global_forecast = forecasts[0]
         for forecast in forecasts[1:]:
-            global_forecast = pd.merge(
-                global_forecast, forecast, on="date_time")
+            global_forecast = pd.merge(global_forecast, forecast, on="date_time")
 
         dates = [date.to_pydatetime() for date in global_forecast["date_time"]]
 
@@ -111,4 +110,5 @@ async def get_prediction_data(json_data):
         }
     except Exception as e:
         print(f"Exception Type: {type(e).__name__}")
+        return None
         return None
