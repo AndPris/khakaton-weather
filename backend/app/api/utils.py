@@ -78,17 +78,26 @@ async def get_weather_data(formatted_data):
 async def get_prediction_data(json_data):
     try:
         data_list = json_data["list"]
-
         forecasts = []
         for key in ["main", "wind", "clouds"]:
             for option in data_list[0][key].keys():
-                formatted_data = await get_formatted_data(data_list, key, option)
-                forecast = await make_hourly_forecast(formatted_data, option)
-                forecasts.append(forecast)
+                try:
+                    print(f"Processing key: {key}, option: {option}")
+                    formatted_data = await get_formatted_data(data_list, key, option)
+                    forecast = await make_hourly_forecast(formatted_data, option)
+                    forecasts.append(forecast)
+                    print(f"Processed key: {key}, option: {option}")
+                except KeyError as e:
+                    print(
+                        f"KeyError: {e} occurred for key: {key}, option: {option}")
+                    # Handle the KeyError or add more specific error handling
+                except Exception as e:
+                    print(f"Exception Type: {type(e).__name__}")
 
         global_forecast = forecasts[0]
         for forecast in forecasts[1:]:
-            global_forecast = pd.merge(global_forecast, forecast, on="date_time")
+            global_forecast = pd.merge(
+                global_forecast, forecast, on="date_time")
 
         dates = [date.to_pydatetime() for date in global_forecast["date_time"]]
 
@@ -100,5 +109,6 @@ async def get_prediction_data(json_data):
             "humidity": global_forecast["humidity"].tolist()[2::3],
             "speed": global_forecast["speed"].tolist()[2::3],
         }
-    except Exception:
+    except Exception as e:
+        print(f"Exception Type: {type(e).__name__}")
         return None
