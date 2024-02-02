@@ -73,5 +73,20 @@ VITE_GEO_API="YOUR GEOAPIFY API KEY"
 
 Open your browser and visit `http://localhost:5173/` to view the application.
 
-## Made by Bees team.
+## Integration Tests
 
+To run integration tests, use the following command:
+
+```
+python tests\integration\test_weather_prediction_api.py
+```
+
+## Unit Tests
+
+To run unit tests, execute the following command:
+
+```
+python -m unittest your-path\khakaton-weather\tests\unit\test_get_weather_prediction.py
+```
+
+## Made by Bees team.
