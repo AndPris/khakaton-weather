@@ -1,8 +1,9 @@
 from typing import Dict, Union
 
-from api.schemas import DisplayWeatherData
-from api.utils import get_weather_prediction_data
+from .schemas import DisplayWeatherData
+from .utils import get_weather_prediction_data
 from fastapi import APIRouter, Query
+from fastapi.responses import JSONResponse
 
 router = APIRouter(prefix="/api/v1")
 
@@ -17,6 +18,6 @@ async def get_user_by_id(
     print(lat, lon)
     data = await get_weather_prediction_data(lon, lat)
     if not data:
-        return {"message": f"Check your API key or params"}
+        return JSONResponse(status_code=400, content={"message": "Check your API key or params"})
 
     return data
