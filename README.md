@@ -18,7 +18,7 @@ cd khakaton-weather
 You will need your own API key from OpenWeatherMap with a Medium plan to access Historical APIs. Once you have the API key, create a .env file in the root directory of the project and add your API key to it. Here's an example of the .env file:
 
 ```
-API_KEY=your_api_key_here
+API_WEATHER="YOUR OPENWEATHER API KEY"
 ```
 
 ### Install Python Dependencies
@@ -59,6 +59,14 @@ Start the frontend development server:
 
 ```
 npm run dev
+```
+
+### Create an API Key
+
+Set .env file with GEOAPIFY API Key:
+
+```
+VITE_GEO_API="YOUR GEOAPIFY API KEY"
 ```
 
 ## Made by Bees team.
