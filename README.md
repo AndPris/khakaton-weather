@@ -27,6 +27,8 @@ Navigate to the backend directory and install the required Python libraries usin
 
 ```
 cd backend
+python -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
