@@ -1,4 +1,4 @@
-# This repository contains code for khakaton competition.
+# Khakaton Weather Application
 
 ## Weather prediction server
 
@@ -69,4 +69,9 @@ Set .env file with GEOAPIFY API Key:
 VITE_GEO_API="YOUR GEOAPIFY API KEY"
 ```
 
+### Access the application
+
+Open your browser and visit `http://localhost:5173/` to view the application.
+
 ## Made by Bees team.
+
